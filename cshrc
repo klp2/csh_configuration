@@ -64,7 +64,8 @@ source ~/perl5/perlbrew/etc/cshrc
     set hosts = ($hosts `grep ^Host "$HOME/.ssh/config" | cut -w -f2`)
   endif
   if ( -r "$HOME/.ssh/known_hosts" ) then
-    set hosts = ($hosts `cut -w -f1 "$HOME/.ssh/known_hosts" | cut -d, -f1`)
+    #set hosts = ($hosts `cut -w -f1 "$HOME/.ssh/known_hosts" | cut -d, -f1`)
+    set hosts = ($hosts `less $HOME/.ssh/known_hosts | awk '{print $1}' | cut -d, -f1`)
   endif
   set hosts=(`echo $hosts | tr -d '[]' | sort | uniq`)
   unset f
