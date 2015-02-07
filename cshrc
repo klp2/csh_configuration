@@ -12,7 +12,6 @@ alias ll	ls -l
 alias nano	nano -Swx
 alias pico	nano -Swx
 
-
 # A righteous umask
 umask 22
 
@@ -42,7 +41,11 @@ if ($?prompt) then
 		bindkey "^R" i-search-back
 	endif
 endif
-source ~/perl5/perlbrew/etc/cshrc
+
+# lazy add ssh keys
+foreach key (`ls $HOME/.ssh/keys`)
+    ssh-add $HOME/.ssh/keys/$key >& /dev/null
+end
 
 ## more auto-complete stuff stolen from http://www.wonkity.com/~wblock/csh/completions
 
