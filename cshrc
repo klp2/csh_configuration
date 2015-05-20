@@ -32,8 +32,8 @@ if ($?prompt) then
 	# An interactive shell -- set some stuff up
 	set prompt = "%{\033[1;32m%}`whoami`%{\033[0m%}@%{\033[1;36m%}%M%{\033[0m%} %/ %{\033[1;36m%}#%{\033[0m%} "
 	set filec
-	set history = 1000
-	set savehist = 1000
+	set history = 5000
+	set savehist = (5000 merge)
 	set mail = (/var/mail/$USER)
 	if ( $?tcsh ) then
 		bindkey "^W" backward-delete-word
