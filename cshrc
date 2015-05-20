@@ -23,6 +23,7 @@ set autolist
 
 setenv	EDITOR	vi
 setenv	PAGER	more
+setenv  MORE	FSXR #for pretty git output
 setenv	BLOCKSIZE	K
 setenv	LSCOLORS	GxGxFxxxCxDxDxCxCxExEx
 setenv  GOPATH $HOME/gocode
@@ -64,11 +65,11 @@ end
     endif
   end
   if ( -r "$HOME/.ssh/config" ) then
-    set hosts = ($hosts `grep ^Host "$HOME/.ssh/config" | cut -w -f2`)
+    set hosts = ($hosts `grep ^Host "$HOME/.ssh/config" | cut -d ' ' -f 2`)
   endif
   if ( -r "$HOME/.ssh/known_hosts" ) then
-    #set hosts = ($hosts `cut -w -f1 "$HOME/.ssh/known_hosts" | cut -d, -f1`)
-    set hosts = ($hosts `less $HOME/.ssh/known_hosts | awk '{print $1}' | cut -d, -f1`)
+    #set hosts = ($hosts `cut -w -f1 "$HOME/.ssh/known_hosts" | cut -d, -f 1`)
+    set hosts = ($hosts `less $HOME/.ssh/known_hosts | awk '{print $1}' | cut -d, -f 1`)
   endif
   set hosts=(`echo $hosts | tr -d '[]' | sort | uniq`)
   unset f
