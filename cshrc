@@ -31,7 +31,9 @@ setenv	LSCOLORS	GxGxFxxxCxDxDxCxCxExEx
 
 if ($?prompt) then
 	# An interactive shell -- set some stuff up
-	set prompt = "%{\033[1;32m%}`whoami`%{\033[0m%}@%{\033[1;36m%}%M%{\033[0m%} %/ %{\033[1;36m%}#%{\033[0m%} "
+    ## This prompt relies on using Stephen Reim's git-tools stuff, from https://github.com/cobber/git-tools. The git-prompt script needs to be in your PATH.  That requires perl to be installed, and requires the YAML module to be installed as well.  If you don't want any of those things, comment this one out, and uncomment the set prompt line just below it. 
+    alias precmd 'set prompt = "%{\033[1;32m%}`whoami`%{\033[0m%}@%{\033[1;36m%}%M%{\033[0m%} %c03`git-prompt` \n%{\033[1;36m%}#%{\033[0m%} "'
+    #set prompt = "%{\033[1;32m%}`whoami`%{\033[0m%}@%{\033[1;36m%}%M%{\033[0m%} %~ %{\033[0m%} \n%{\033[1;36m%}#%{\033[0m%} "
 	set filec
 	set history = 5000
 	set savehist = (5000 merge)
