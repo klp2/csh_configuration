@@ -11,23 +11,23 @@ alias lf	ls -FA
 alias ll	ls -l
 alias nano	nano -Swx
 alias pico	nano -Swx
+alias man   man -P most
+alias grep  ack-grep
 
 # A righteous umask
 umask 22
 
-setenv  GOPATH ~/work/code/go
-source ~/perl5/perlbrew/etc/cshrc
+setenv  GOROOT /usr/local/go
 
-set path = (/sbin /bin /usr/sbin /usr/bin /usr/games /usr/local/sbin /usr/local/bin /usr/X11R6/bin $HOME/bin ${GOPATH}/bin)
+set path = (/sbin /bin /usr/sbin /usr/bin /usr/games /usr/local/sbin /usr/local/bin /usr/X11R6/bin $HOME/bin ${GOROOT}/bin)
 set nobeep
 set autolist
 
 setenv	EDITOR	vi
-setenv	PAGER	less
-setenv  LESS	FSXR #for pretty git output
+setenv	PAGER	most
 setenv	BLOCKSIZE	K
 setenv	LSCOLORS	GxGxFxxxCxDxDxCxCxExEx
-#setenv  GOPATH $HOME/gocode
+setenv  GOPATH $HOME/gocode
 
 if ($?prompt) then
 	# An interactive shell -- set some stuff up
@@ -66,11 +66,11 @@ end
     endif
   end
   if ( -r "$HOME/.ssh/config" ) then
-    set hosts = ($hosts `grep ^Host "$HOME/.ssh/config" | cut -d ' ' -f 2`)
+    set hosts = ($hosts `grep ^Host "$HOME/.ssh/config" | cut -w -f2`)
   endif
   if ( -r "$HOME/.ssh/known_hosts" ) then
-    #set hosts = ($hosts `cut -w -f1 "$HOME/.ssh/known_hosts" | cut -d, -f 1`)
-    set hosts = ($hosts `less $HOME/.ssh/known_hosts | awk '{print $1}' | cut -d, -f 1`)
+    #set hosts = ($hosts `cut -w -f1 "$HOME/.ssh/known_hosts" | cut -d, -f1`)
+    set hosts = ($hosts `less $HOME/.ssh/known_hosts | awk '{print $1}' | cut -d, -f1`)
   endif
   set hosts=(`echo $hosts | tr -d '[]' | sort | uniq`)
   unset f
@@ -271,3 +271,5 @@ end
   endif
 
 ## end of auto-completiong stuff stolen from http://www.wonkity.com/~wblock/csh/completions
+
+source ~/perl5/perlbrew/etc/cshrc
