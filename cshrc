@@ -16,9 +16,10 @@ alias pico	nano -Swx
 umask 22
 
 setenv  GOPATH ~/work/code/go
-source ~/perl5/perlbrew/etc/cshrc
+setenv  GOBIN  ${GOPATH}/bin
 
-set path = (/sbin /bin /usr/sbin /usr/bin /usr/games /usr/local/sbin /usr/local/bin /usr/X11R6/bin $HOME/bin ${GOPATH}/bin)
+set path = (/sbin /bin /usr/sbin /usr/bin /usr/games /usr/local/sbin /usr/local/bin /usr/X11R6/bin $HOME/bin ${GOBIN} /usr/local/go/bin)
+source ~/perl5/perlbrew/etc/cshrc
 set nobeep
 set autolist
 
