@@ -11,20 +11,27 @@ alias lf	ls -FA
 alias ll	ls -l
 alias nano	nano -Swx
 alias pico	nano -Swx
+alias man   man -P most
+alias grep  ack
 
 # A righteous umask
 umask 22
 
-setenv  GOPATH ~/work/code/go
+setenv  GOPATH ~/go
 setenv  GOBIN  ${GOPATH}/bin
+
+#mac osx really wants bash to be the default shell
+setenv SHELL /bin/csh
 
 set path = (/sbin /bin /usr/sbin /usr/bin /usr/games /usr/local/sbin /usr/local/bin /usr/X11R6/bin $HOME/bin ${GOBIN} /usr/local/go/bin)
 source ~/perl5/perlbrew/etc/cshrc
+source ~/git-tools/tcsh/completions
+source ~/csh_configuration/cshrc.local
 set nobeep
 set autolist
 
 setenv	EDITOR	vi
-setenv	PAGER	less
+setenv	PAGER	most
 setenv  LESS	FSXR #for pretty git output
 setenv	BLOCKSIZE	K
 setenv	LSCOLORS	GxGxFxxxCxDxDxCxCxExEx
@@ -36,8 +43,8 @@ if ($?prompt) then
     alias precmd 'set prompt = "%{\033[1;32m%}`whoami`%{\033[0m%}@%{\033[1;36m%}%M%{\033[0m%} %c03`git-prompt` \n%{\033[1;36m%}#%{\033[0m%} "'
     #set prompt = "%{\033[1;32m%}`whoami`%{\033[0m%}@%{\033[1;36m%}%M%{\033[0m%} %~ %{\033[0m%} \n%{\033[1;36m%}#%{\033[0m%} "
 	set filec
-	set history = 5000
-	set savehist = (5000 merge)
+	set history = 50000
+	set savehist = (50000 merge)
 	set mail = (/var/mail/$USER)
 	if ( $?tcsh ) then
 		bindkey "^W" backward-delete-word
