@@ -12,7 +12,12 @@ alias ll	ls -l
 alias nano	nano -Swx
 alias pico	nano -Swx
 alias man   man -P most
-alias grep  ack
+alias bgrep  ack
+alias gs    git status
+alias gd    git diff
+alias gc    git commit
+alias gp    git push
+alias t     tmux
 
 # A righteous umask
 umask 22
