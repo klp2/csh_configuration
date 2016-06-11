@@ -29,7 +29,6 @@ setenv  GOBIN  ${GOPATH}/bin
 setenv SHELL /bin/csh
 
 set path = (/sbin /bin /usr/sbin /usr/bin /usr/games /usr/local/sbin /usr/local/bin /usr/X11R6/bin $HOME/bin ${GOBIN} /usr/local/go/bin)
-source ~/perl5/perlbrew/etc/cshrc
 source ~/git-tools/tcsh/completions
 source ~/csh_configuration/cshrc.local
 set nobeep
