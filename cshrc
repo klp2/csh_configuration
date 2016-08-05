@@ -14,6 +14,7 @@ alias pico	nano -Swx
 alias man   man -P most
 alias bgrep  ack
 alias ga    git add
+alias gb    git branch
 alias co    git checkout
 alias gs    git status
 alias gd    git diff
