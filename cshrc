@@ -14,6 +14,7 @@ alias pico	nano -Swx
 alias man   man -P most
 alias bgrep  ack
 alias ga    git add
+alias lgb git for-each-ref --sort=committerdate refs/heads/ --format=\'%\(committerdate:short\) %\(authorname\) %\(refname:short\)\'
 alias gb    git branch
 alias co    git checkout
 alias gs    git status
@@ -37,11 +38,10 @@ set nobeep
 set autolist
 
 setenv	EDITOR	vi
-setenv	PAGER	most
+setenv	PAGER	less
 setenv  LESS	FSXR #for pretty git output
 setenv	BLOCKSIZE	K
 setenv	LSCOLORS	GxGxFxxxCxDxDxCxCxExEx
-#setenv  GOPATH $HOME/gocode
 
 if ($?prompt) then
 	# An interactive shell -- set some stuff up
