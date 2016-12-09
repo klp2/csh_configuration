@@ -11,7 +11,6 @@ alias lf	ls -FA
 alias ll	ls -l
 alias nano	nano -Swx
 alias pico	nano -Swx
-alias man   man -P most
 alias bgrep  ack
 alias ga    git add
 alias lgb git for-each-ref --sort=committerdate refs/heads/ --format=\'%\(committerdate:short\) %\(authorname\) %\(refname:short\)\'
